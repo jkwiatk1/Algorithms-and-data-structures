@@ -66,12 +66,14 @@ def print_k_ary_heap(heap, k, depth=0):
     if not heap:
         return
 
-    print(" " * len(heap), heap[0])
+    for i in range(len(heap), 0, -1):
 
+        print(" " * i, heap[-i], end = )
 
-    for i in range(1, k + 1):
-        if i <= len(heap):
-            print_k_ary_heap(heap[i:], k, depth + 1)
+    #
+    # for i in range(1, k + 1):
+    #     if i <= len(heap):
+    #         print_k_ary_heap(heap[i:], k, depth + 1)
 
 # Example usage
 
