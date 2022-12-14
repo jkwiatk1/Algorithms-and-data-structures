@@ -14,6 +14,12 @@ class MaxHeap:
         self.heapSize = len(self.heapListOfNodes)
 
     def parent(self, index):
+        '''
+        Zwraca index parenta
+
+        :param index indeks dziecka w liście [0...nodes_amount]
+        :return: indeks parenta [0...nodes_amount]
+        '''
         return (index-1)//self.nodesAmount
     def get_nodes(self):
         return self.heapListOfNodes
@@ -21,8 +27,14 @@ class MaxHeap:
     def get_value(self,idx):
         return self.heapListOfNodes[idx]
 
-    def child(self, index, i):
-        return (self.nodesAmount * index + i-1)
+    def child(self, index, child_of_parent_idx):
+        '''
+        Zwraca index w tablicy dziecka parenta o indeksie index [0...nodes_amount].
+        :param index indeks parenta w tablicy [0...nodes_amount]
+        :param child_of_parent_idx ideks dziecka w drzewie [1...(nodes_amount -1)]
+        :return: indeks dziecka w liście
+        '''
+        return (self.nodesAmount * index + child_of_parent_idx)
 
     def upHeap(self, index):
         while (index != 0 and (self.heapListOfNodes[self.parent(index)]) < self.heapListOfNodes[index]):
@@ -33,14 +45,14 @@ class MaxHeap:
     def findMaxChild(self, index):
         maxChild = self.heapListOfNodes[index]
         maxChildIndex = -1
-        i = 1
-        while self.child(index, i) < self.heapSize:
-            if self.heapListOfNodes[self.child(index, i)] > maxChild:
-                maxChild = self.heapListOfNodes[self.child(index, i)]
-                maxChildIndex = self.child(index, i)
-            if i >= self.nodesAmount:
+        idx_child_of_parent = 1
+        while self.child(index, idx_child_of_parent) < self.heapSize:
+            if self.heapListOfNodes[self.child(index, idx_child_of_parent)] > maxChild:
+                maxChild = self.heapListOfNodes[self.child(index, idx_child_of_parent)]
+                maxChildIndex = self.child(index, idx_child_of_parent)
+            if idx_child_of_parent >= self.nodesAmount:
                 break
-            i += 1
+            idx_child_of_parent += 1
         return maxChildIndex
 
     def downHeap(self, parent_index):
@@ -67,6 +79,11 @@ class MaxHeap:
         return self.heapListOfNodes[0]
 
     def pop(self):
+        '''
+        Usuwa i zwraca korzeń kopca.
+        Nastepnie równowazy kopiec downheap.
+        :return: korzeń kopca
+        '''
         root = self.heapListOfNodes[0]
 
         self.heapListOfNodes[0] = self.heapListOfNodes[self.heapSize -1]
@@ -80,11 +97,5 @@ def print_k_ary_heap(heap, k, depth=0):
         return
 
     for i in range(len(heap), 0, -1):
-
         print(" " * i, heap[-i])
-
-    #
-    # for i in range(1, k + 1):
-    #     if i <= len(heap):
-    #         print_k_ary_heap(heap[i:], k, depth + 1)
 
