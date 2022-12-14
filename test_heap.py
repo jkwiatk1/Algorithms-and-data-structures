@@ -44,14 +44,14 @@ class TestMaxHeap(TestCase):
     def test_add_4(self):
         heapTrinary = MaxHeap(nodesAmount=4)
 
-        heapTrinary.addToHeap(5)
-        heapTrinary.addToHeap(7)
-        heapTrinary.addToHeap(1)
-        heapTrinary.addToHeap(9)
-        heapTrinary.addToHeap(2)
-        heapTrinary.addToHeap(4)
-        heapTrinary.addToHeap(3)
-        heapTrinary.addToHeap(0)
-        heapTrinary.addToHeap(11)
+        heapTrinary.add(5)
+        heapTrinary.add(7)
+        heapTrinary.add(1)
+        heapTrinary.add(9)
+        heapTrinary.add(2)
+        heapTrinary.add(4)
+        heapTrinary.add(3)
+        heapTrinary.add(0)
+        heapTrinary.add(11)
 
         self.assertEquals(heapTrinary.get_nodes(),[11,  9,1,7,2, 4,3,0,5])

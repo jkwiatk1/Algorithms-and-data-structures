@@ -70,7 +70,7 @@ class MaxHeap:
 
 
 
-    def addToHeap(self, data):
+    def add(self, data):
         self.heapListOfNodes.append(data)
         self.heapSize += 1
         self.upHeap(self.heapSize -1)
@@ -87,6 +87,7 @@ class MaxHeap:
         root = self.heapListOfNodes[0]
 
         self.heapListOfNodes[0] = self.heapListOfNodes[self.heapSize -1]
+        self.heapSize -= 1
         self.heapListOfNodes.pop()
         self.downHeap(0)
 
