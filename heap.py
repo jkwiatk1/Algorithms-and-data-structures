@@ -8,8 +8,18 @@ class MaxHeap:
         self.nodesAmount = nodesAmount
         self.heapSize = 0
 
+    def __init__(self, nodesAmount = 2,heapListOfNodes = []):
+        self.heapListOfNodes = heapListOfNodes
+        self.nodesAmount = nodesAmount
+        self.heapSize = len(self.heapListOfNodes)
+
     def parent(self, index):
         return (index-1)//self.nodesAmount
+    def get_nodes(self):
+        return self.heapListOfNodes
+
+    def get_value(self,idx):
+        return self.heapListOfNodes[idx]
 
     def child(self, index, i):
         return (self.nodesAmount * index + i-1)
@@ -33,17 +43,19 @@ class MaxHeap:
             i += 1
         return maxChildIndex
 
-    def downHeap(self, index):
-        while (index * self.nodesAmount) <= self.heapSize:
-            childIndex = self.findMaxChild(index)
+    def downHeap(self, parent_index):
+
+        while (parent_index * self.nodesAmount) <= self.heapSize:
+            childIndex = self.findMaxChild(parent_index)
             if childIndex == -1:
                 break
-            if self.heapListOfNodes[index] < self.heapListOfNodes[childIndex]:
+            if self.heapListOfNodes[parent_index] < self.heapListOfNodes[childIndex]:
                 # swap
-                temp = self.heapListOfNodes[index]
-                self.heapListOfNodes[index] = self.heapListOfNodes[childIndex]
+                temp = self.heapListOfNodes[parent_index]
+                self.heapListOfNodes[parent_index] = self.heapListOfNodes[childIndex]
                 self.heapListOfNodes[childIndex] = temp
-            index = childIndex
+            parent_index = childIndex
+
 
 
     def addToHeap(self, data):
@@ -56,6 +68,7 @@ class MaxHeap:
 
     def pop(self):
         root = self.heapListOfNodes[0]
+
         self.heapListOfNodes[0] = self.heapListOfNodes[self.heapSize -1]
         self.heapListOfNodes.pop()
         self.downHeap(0)
@@ -68,30 +81,10 @@ def print_k_ary_heap(heap, k, depth=0):
 
     for i in range(len(heap), 0, -1):
 
-        print(" " * i, heap[-i], end = )
+        print(" " * i, heap[-i])
 
     #
     # for i in range(1, k + 1):
     #     if i <= len(heap):
     #         print_k_ary_heap(heap[i:], k, depth + 1)
 
-# Example usage
-
-
-heapBinary = MaxHeap(2)
-heapBinary.addToHeap(2)
-heapBinary.addToHeap(3)
-heapBinary.addToHeap(9)
-heapBinary.addToHeap(4)
-heapBinary.addToHeap(1)
-heapBinary.addToHeap(8) #problem tu
-heapBinary.addToHeap(7) #problem tu
-heapBinary.addToHeap(15)
-heapBinary.addToHeap(20)
-heapBinary.addToHeap(41)
-heapBinary.addToHeap(32)
-heapBinary.addToHeap(5)
-print_k_ary_heap(heapBinary.heapListOfNodes, 3)
-print(heapBinary.top())
-print(heapBinary.pop())
-print(heapBinary.top())
