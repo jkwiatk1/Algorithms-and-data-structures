@@ -56,6 +56,12 @@ class MaxHeap:
         return maxChildIndex
 
     def downHeap(self, parent_index):
+        '''
+        Iteracyjnie przechodzi od góry do dołu, znaszac na dół element kopca który jest
+        po za porządkiem.
+        :param parent_index:
+        :return:
+        '''
 
         while (parent_index * self.nodesAmount) <= self.heapSize:
             childIndex = self.findMaxChild(parent_index)

@@ -2,6 +2,7 @@ import random
 import time
 import gc
 import matplotlib.pyplot as plt
+from tqdm import tqdm
 
 from heap import MaxHeap
 
@@ -15,33 +16,29 @@ fill_randoms()
 list_sizes = list(range(10000, 110000, 10000))
 
 print(list_sizes)
+hbinaries = []
+times_hbinaries_add = []
+times_hbinaries_pop = []
+htrinaries = []
+times_htrinaries_add = []
+times_htrinaries_pop = []
+hfournaries = []
+times_hfournaries_add = []
+times_hfournaries_pop = []
 
+for i in (range(len(list_sizes))):
+    hbinaries.append(MaxHeap(nodesAmount=2))
+    htrinaries.append(MaxHeap(nodesAmount=3))
+    hfournaries.append(MaxHeap(nodesAmount=4))
 
-def cleanup():
-    global hbinaries, times_hbinaries_add, times_hbinaries_pop, htrinaries, times_htrinaries_add, times_htrinaries_pop, hfournaries, times_hfournaries_add, times_hfournaries_pop
-    hbinaries = list(range(len(list_sizes)))
-    times_hbinaries_add = []
-    times_hbinaries_pop = []
-    htrinaries = list(range(len(list_sizes)))
-    times_htrinaries_add = []
-    times_htrinaries_pop = []
-    hfournaries = list(range(len(list_sizes)))
-    times_hfournaries_add = []
-    times_hfournaries_pop = []
-    for i in (range(len(list_sizes))):
-        hbinaries[i] = MaxHeap(nodesAmount=2)
-        htrinaries[i] = MaxHeap(nodesAmount=3)
-        hfournaries[i] = MaxHeap(nodesAmount=4)
-
-
-cleanup()
 
 
 def add_to_heap_exp(heap, n):
+    assert len(heap.heapListOfNodes) == 0
     gc_old = gc.isenabled() # pobierz aktualny stan odśmiecania
     gc.disable() # wyłącz odśmiecanie
     start = time.process_time() # pobierz aktualny czas
-    for i in (range(n)):
+    for i in tqdm((range(n))):
         heap.add(randoms[i])
     stop = time.process_time()
     time_list = stop-start
@@ -49,11 +46,12 @@ def add_to_heap_exp(heap, n):
     return time_list
 
 def pop_all_heap_exp(heap, n):
+    assert len(heap.heapListOfNodes) == n
     gc_old = gc.isenabled() # pobierz aktualny stan odśmiecania
     gc.disable() # wyłącz odśmiecanie
     start = time.process_time() # pobierz aktualny czas
 
-    for i in (range(n)):
+    for i in tqdm((range(n))):
         heap.pop()
     stop = time.process_time()
     time_list = stop-start
@@ -80,9 +78,24 @@ def exp_pop():
     exp_pop_single(htrinaries,times_htrinaries_pop)
     exp_pop_single(hfournaries,times_hfournaries_pop)
 
-exp_add()
-exp_pop()
-cleanup()
+# exp_add()
+# exp_pop()
+#
+# print(list_sizes)
+# hbinaries = []
+# times_hbinaries_add = []
+# times_hbinaries_pop = []
+# htrinaries = []
+# times_htrinaries_add = []
+# times_htrinaries_pop = []
+# hfournaries = []
+# times_hfournaries_add = []
+# times_hfournaries_pop = []
+#
+# for i in (range(len(list_sizes))):
+#     hbinaries.append(MaxHeap(nodesAmount=2))
+#     htrinaries.append(MaxHeap(nodesAmount=3))
+#     hfournaries.append(MaxHeap(nodesAmount=4))
 exp_add()
 exp_pop()
 
