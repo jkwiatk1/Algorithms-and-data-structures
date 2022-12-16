@@ -78,24 +78,27 @@ def exp_pop():
     exp_pop_single(htrinaries,times_htrinaries_pop)
     exp_pop_single(hfournaries,times_hfournaries_pop)
 
-# exp_add()
-# exp_pop()
-#
-# print(list_sizes)
-# hbinaries = []
-# times_hbinaries_add = []
-# times_hbinaries_pop = []
-# htrinaries = []
-# times_htrinaries_add = []
-# times_htrinaries_pop = []
-# hfournaries = []
-# times_hfournaries_add = []
-# times_hfournaries_pop = []
-#
-# for i in (range(len(list_sizes))):
-#     hbinaries.append(MaxHeap(nodesAmount=2))
-#     htrinaries.append(MaxHeap(nodesAmount=3))
-#     hfournaries.append(MaxHeap(nodesAmount=4))
+# warm up
+exp_add()
+exp_pop()
+
+print(list_sizes)
+hbinaries = []
+times_hbinaries_add = []
+times_hbinaries_pop = []
+htrinaries = []
+times_htrinaries_add = []
+times_htrinaries_pop = []
+hfournaries = []
+times_hfournaries_add = []
+times_hfournaries_pop = []
+
+for i in (range(len(list_sizes))):
+    hbinaries.append(MaxHeap(nodesAmount=2))
+    htrinaries.append(MaxHeap(nodesAmount=3))
+    hfournaries.append(MaxHeap(nodesAmount=4))
+
+
 exp_add()
 exp_pop()
 
