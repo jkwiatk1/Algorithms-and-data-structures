@@ -16,24 +16,25 @@ list_sizes = list(range(10000, 110000, 10000))
 
 print(list_sizes)
 
-hbinaries = list(range(len(list_sizes)))
-times_hbinaries_add = []
-times_hbinaries_pop = []
 
-htrinaries = list(range(len(list_sizes)))
-times_htrinaries_add = []
-times_htrinaries_pop = []
+def cleanup():
+    global hbinaries, times_hbinaries_add, times_hbinaries_pop, htrinaries, times_htrinaries_add, times_htrinaries_pop, hfournaries, times_hfournaries_add, times_hfournaries_pop
+    hbinaries = list(range(len(list_sizes)))
+    times_hbinaries_add = []
+    times_hbinaries_pop = []
+    htrinaries = list(range(len(list_sizes)))
+    times_htrinaries_add = []
+    times_htrinaries_pop = []
+    hfournaries = list(range(len(list_sizes)))
+    times_hfournaries_add = []
+    times_hfournaries_pop = []
+    for i in (range(len(list_sizes))):
+        hbinaries[i] = MaxHeap(nodesAmount=2)
+        htrinaries[i] = MaxHeap(nodesAmount=3)
+        hfournaries[i] = MaxHeap(nodesAmount=4)
 
-hfournaries = list(range(len(list_sizes)))
-times_hfournaries_add = []
-times_hfournaries_pop = []
 
-for i in (range(len(list_sizes))):
-    hbinaries[i] = MaxHeap(nodesAmount=2)
-    htrinaries[i] = MaxHeap(nodesAmount=3)
-    hfournaries[i] = MaxHeap(nodesAmount=4)
-
-
+cleanup()
 
 
 def add_to_heap_exp(heap, n):
@@ -81,7 +82,7 @@ def exp_pop():
 
 exp_add()
 exp_pop()
-
+cleanup()
 exp_add()
 exp_pop()
 
