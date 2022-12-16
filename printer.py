@@ -7,12 +7,12 @@ def create_tree(row,n,nodes_amount,last_row,total_width, fill = ' ', SepareWhenE
     if row != last_row:
         output.write('\n')
     columns = nodes_amount ** row
-    col_width = int(math.floor((total_width * 1.0) / columns))
+    col_width = int(math.floor((total_width * 0.25) / columns))
     output.write(str(n).center(col_width, fill))
     if row != 0 and SepareWhenEqualToNodesAmount == nodes_amount:
-        # output.seek(col_width - 1)
+        #output.seek(col_width - 1)
         output.write("|")
-        # output.seek(0)
+        #output.seek(0)
     return row
 
 
@@ -59,6 +59,9 @@ heapBinary.add(8)
 heapBinary.add(7)
 heapBinary.add(15)
 heapBinary.add(20)
+heapBinary.add(20)
+heapBinary.add(20)
+heapBinary.add(20)
 
 show_tree(heapBinary.get_nodes(), nodes_amount = 4)
-# show_tree([8, 5,7,6,  1,1,1, 4,9,2, 1,5,1,   2,3,4, 7,4,3, 4,3,1, 4,8,9, 0,5,1, 2,3,4, 7,4,3, 4,3,1, 4,8,9], nodes_amount = 2)
+#show_tree([8, 5,7,6,  1,1,1, 4,9,2, 1,5,1,   2,3,4, 7,4,3, 4,3,1, 4,8,9, 0,5,1, 2,3,4, 7,4,3, 4,3,1, 4,8,9], nodes_amount = 2)

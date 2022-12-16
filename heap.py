@@ -84,19 +84,11 @@ class MaxHeap:
         Nastepnie równowazy kopiec downheap.
         :return: korzeń kopca
         '''
-        root = self.heapListOfNodes[0]
 
+        root = self.heapListOfNodes[0]
         self.heapListOfNodes[0] = self.heapListOfNodes[self.heapSize -1]
         self.heapSize -= 1
-        self.heapListOfNodes.pop()
         self.downHeap(0)
 
         return root
-
-def print_k_ary_heap(heap, k, depth=0):
-    if not heap:
-        return
-
-    for i in range(len(heap), 0, -1):
-        print(" " * i, heap[-i])
 
