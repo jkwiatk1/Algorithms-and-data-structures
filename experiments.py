@@ -43,6 +43,7 @@ def add_to_heap_exp(heap, n):
     stop = time.process_time()
     time_list = stop-start
     if gc_old: gc.enable() # przywróć pierwotny stan odśmiecania
+    assert len(heap.heapListOfNodes) == n
     return time_list
 
 def pop_all_heap_exp(heap, n):
@@ -56,6 +57,7 @@ def pop_all_heap_exp(heap, n):
     stop = time.process_time()
     time_list = stop-start
     if gc_old: gc.enable() # przywróć pierwotny stan odśmiecania
+    assert heap.heapSize == 0
     return time_list
 
 def exp_add_single(heaps, times):
