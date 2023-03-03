@@ -14,4 +14,4 @@ Należało wygenerować wejściową listę liczb (np. 100000 losowych liczb z za
 
 Dla każdej z operacji wygenerowano zbiorcze wykresy (jeden wykres dla trzech typów kopców) pokazujące zależność czasu wykonania operacji od liczby elementów/wykonań.
 
-Dokumentacja zadania: 
+Dokumentacja zadania: https://github.com/jkwiatk1/Algorithms-and-data-structures/blob/main/Lab3/doc/lab3_sprawozdanie.pdf
