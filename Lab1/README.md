@@ -20,8 +20,8 @@ Jako dane do sortowania wykorzystano plik ```pan-tadeusz.txt```, zawierający s�
 * zmierzono czas sortowania list zawierających n pierwszych słów wczytanych zpliku (np. n = 1000, 2000, ..., 10000),
 * wygenerowano wykres zależności czasu sortowania od długości listy.
 
-Zwrócono uwagę by mierzyć wyłącznie czas sortowania, pomijając wczytywanie danych lub wyświetlanie wyników. I
+Zwrócono uwagę by mierzyć wyłącznie czas sortowania, pomijając wczytywanie danych lub wyświetlanie wyników.
 
 Dla każdej z operacji wygenerowano zbiorczy wykresy pokazujący zależność czasu wykonania operacji od liczby elementów/wykonań.
 
-Dokumentacja zadania: 
+Dokumentacja zadania: https://github.com/jkwiatk1/Algorithms-and-data-structures/blob/main/Lab1/doc/lab1_sprawozdanie.pdf
