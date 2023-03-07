@@ -1,24 +1,22 @@
-# Sortowanie
-## Implementacja algorytmów sortowania
+# Drzewa
+## Implementacja drzew
 
-W ramach ćwiczenia napisano cztery funkcje sortujące, które implementują następujące algorytmy:
-* sortowanie bąbelkowe (ang. bubble sort),
-* sortowanie przez wybieranie (ang. selection sort),
-* sortowanie przez scalanie (ang. merge sort),
-* sortowanie szybkie (ang. quick sort).
+W ramach ćwiczenia zaimplementowano następujące drzewa:
+* drzewo BST (ang. Binary Search Tree),
+* drzewo AVL.
 
-Każda z funkcji przyjmuje jako argument listę i zwraca listę posortowaną, np.:
-```bash
->>> bubble_sort([3,5,1])
-[1,3,5]
-```
+Wymagane operacje:
+* wstawianie elementu do drzewa,
+* wyszukiwanie elementu w drzewie,
+* usuwanie elementu z drzewa,
+* wyświetlanie drzewa na ekranie.
 
-## Porównanie algorytmów sortowania
+## Porównanie drzew
 
-Jako dane do sortowania wykorzystano plik ```pan-tadeusz.txt```, zawierający słowa oddzielone białymi znakami. Dla każdej z funkcji sortujących:
-* sprawdzono czy funkcja poprawnie sortuje słowa wczytywane z pliku,
-* zmierzono czas sortowania list zawierających n pierwszych słów wczytanych zpliku (np. n = 1000, 2000, ..., 10000),
-* wygenerowano wykres zależności czasu sortowania od długości listy.
+Wygenerowano wejściową listę liczb (10000 losowych liczb z zakresu od 1 do 30000), która posłuży dalej do badania wydajności.
+* zmierzono czas tworzenia drzewa na podstawie n pierwszych liczb listy wejściowej(np. n = 1000, 2000, ..., 10000),
+* zmierzono czasy wyszukiwania n pierwszych liczb listy wejściowej (n = 1000,2000, ..., 10000) w drzewie, które dla każdego n zostało utworzone na podstawie całej listy wejściowej,
+* zmierzono czasy usuwania n pierwszych liczb listy wejściowej (n = 1000, 2000,..., 10000) w drzewie, które dla każdego n zostało utworzone na podstawie całej listy wejściowej.
 
 Zwrócono uwagę by mierzyć wyłącznie czas sortowania, pomijając wczytywanie danych lub wyświetlanie wyników.
 
